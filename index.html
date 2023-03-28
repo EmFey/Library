@@ -8,16 +8,56 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="book-tile">
-        <div><img src="bookIMG.jfif" alt="Book image"></div>
-        <div class="book-descr">
-             <h2>Click Millionaires</h2>
-             <p>Scott Fox</p>
-             <p>288 pages</p>
-             <p>No</p>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="images/bookIMG.jfif" alt="Logo">
+                <p>Library</p>
+            </div>
+            <button class="add-book">+</button>
         </div>
+
+        <div class="book-area">
+            <div class="book-tile">
+                <div><img src="images/cmBook.jpg" alt="Book image"></div>
+                <div class="book-descr">
+                     <h2>Click Millionaires</h2>
+                     <p>Scott Fox</p>
+                     <p>288 pages</p>
+                     <p>No</p>
+                </div>
+            </div>
+
+            <div class="book-tile">
+                <div><img src="images/t48Power.jpg" alt="Book image"></div>
+                <div class="book-descr">
+                     <h2>The 48 Laws of Power</h2>
+                     <p>Robert Greene</p>
+                     <p>480 pages</p>
+                     <p>Yes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>emfey</p>
+        </div>
+
     </div>
-    
+    <div class="modal active" id="addBookModal">
+        <form class="add-book-form" id="addBookForm">
+          <h3>Add new book</h3>
+          <input class="input" type="text" id="title" placeholder="Title" required="" maxlength="100">
+          <p class="error-msg" id="errorMsg"></p>
+          <input class="input" type="text" id="author" placeholder="Author" required="" maxlength="100">
+          <input class="input" type="number" id="pages" placeholder="Pages" required="" max="10000">
+          <div class="is-read">
+            <label for="is-read">Have you read it?</label>
+            <input class="checkbox" type="checkbox" id="isRead">
+          </div>
+          <button class="btn btn-light-green" type="submit">Submit</button>
+        </form>
+      </div>
     <script src="app.js"></script>
 </body>
 </html>
