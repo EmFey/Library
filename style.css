@@ -75,9 +75,9 @@ img, button {
     top: 50%;
     left: 50%;
     width: 300px;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius);
-    background-color: var(--grey);
+    padding: var(--main-padding);
+    border-radius: 10px;
+    background-color: #dadada;
     text-align: center;
     transform: translate(-50%, -50%) scale(0);
     transition: 0.2s ease-in-out;
