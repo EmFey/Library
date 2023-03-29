@@ -10,17 +10,39 @@ function Book(title, author, pages, read){
 	}
 }
 
-const book1 = new Book("Click Millionaires", "Scott Fox", 288, false);
-const book2 = new Book("The 48 Laws of Power", "Robert Greene", 480, true);
-const book3 = new Book("Innovators", " Walter Isaacson", 480, true);
+const book1 = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", 224, true);
+const book2 = new Book("Innovators", "Walter Isaacson", 480, true);
 
-myLibrary.push(book1, book2, book3);
+myLibrary.push(book1, book2);
 
-/*function addBookToLibrary() {
-    // code
-}*/
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet');
+const bookContainer = document.querySelector(".book-area");
 
-console.log(myLibrary)
-console.log(theHobbit.info());
+
+function addBookToLibrary() {
+    myLibrary.forEach((book) => {
+		const bookTile = document.createElement("div");
+		bookTile.classList.add("book-tile");
+	  
+		const title = document.createElement("h2");
+		title.textContent = book.title;
+	  
+		const author = document.createElement("p");
+		author.textContent = "Author: " + book.author;
+	  
+		const pages = document.createElement("p");
+		pages.textContent = "Pages: " + book.pages;
+	  
+		const read = document.createElement("p");
+		read.textContent = "Read: " + book.read;
+	  
+		bookTile.appendChild(title);
+		bookTile.appendChild(author);
+		bookTile.appendChild(pages);
+		bookTile.appendChild(read);
+	  
+		bookContainer.appendChild(bookTile);
+	  });
+}
+
+addBookToLibrary();
