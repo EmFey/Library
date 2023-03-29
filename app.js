@@ -1,6 +1,20 @@
 const myLibrary = [];
 const bookContainer = document.querySelector(".book-area");
-const addBookBtn = document.querySelector(".formBtn");
+const addBookBtn = document.querySelector(".add-book");
+const formModal = document.querySelector(".modal");
+const formAddBookBtn = document.querySelector(".formBtn");
+
+addBookBtn.addEventListener('click', openForm);
+formAddBookBtn.addEventListener('click', getBook);
+
+function openForm() {
+	formModal.classList.add("active");
+}
+
+function getBook(title, author, pages, read) {
+	//assign parameters to form inputs and pass it to addBookToLibrary()
+	formModal.classList.remove("active");
+}
 
 function Book(title, author, pages, read){
 	this.title = title;
