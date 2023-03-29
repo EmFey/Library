@@ -23,24 +23,28 @@ function addBookToLibrary() {
     myLibrary.forEach((book) => {
 		const bookTile = document.createElement("div");
 		bookTile.classList.add("book-tile");
-	  
+
+		const image = document.createElement("img");
+  		image.src = "images/bookIMG.jfif";
+
 		const title = document.createElement("h2");
 		title.textContent = book.title;
-	  
+
 		const author = document.createElement("p");
 		author.textContent = "Author: " + book.author;
-	  
+
 		const pages = document.createElement("p");
 		pages.textContent = "Pages: " + book.pages;
-	  
+
 		const read = document.createElement("p");
 		read.textContent = "Read: " + book.read;
-	  
+
+		bookTile.appendChild(image);
 		bookTile.appendChild(title);
 		bookTile.appendChild(author);
 		bookTile.appendChild(pages);
 		bookTile.appendChild(read);
-	  
+
 		bookContainer.appendChild(bookTile);
 	  });
 }
