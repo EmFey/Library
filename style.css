@@ -82,3 +82,7 @@ img, button {
     transform: translate(-50%, -50%) scale(0);
     transition: 0.2s ease-in-out;
 }
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}

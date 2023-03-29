@@ -1,4 +1,6 @@
 const myLibrary = [];
+const bookContainer = document.querySelector(".book-area");
+const addBookBtn = document.querySelector(".formBtn");
 
 function Book(title, author, pages, read){
 	this.title = title;
@@ -14,10 +16,6 @@ const book1 = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", 224
 const book2 = new Book("Innovators", "Walter Isaacson", 480, true);
 
 myLibrary.push(book1, book2);
-
-
-const bookContainer = document.querySelector(".book-area");
-
 
 function addBookToLibrary() {
     myLibrary.forEach((book) => {
