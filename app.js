@@ -6,6 +6,7 @@ const formAddBookBtn = document.querySelector(".formBtn");
 
 addBookBtn.addEventListener('click', openForm);
 formAddBookBtn.addEventListener('click', getBook);
+//window.addEventListener('click', () => {formModal.classList.remove("active");});
 
 function openForm() {
 	formModal.classList.add("active");
