@@ -3,13 +3,19 @@ const bookContainer = document.querySelector(".book-area");
 const addBookBtn = document.querySelector(".add-book");
 const formModal = document.querySelector(".modal");
 const formAddBookBtn = document.querySelector(".formBtn");
+const formBtnCancel = document.querySelector(".formBtnCancel");
 
 addBookBtn.addEventListener('click', openForm);
 formAddBookBtn.addEventListener('click', getBook);
+formBtnCancel.addEventListener('click', cancelForm)
 //window.addEventListener('click', () => {formModal.classList.remove("active");});
 
 function openForm() {
 	formModal.classList.add("active");
+}
+
+function cancelForm() {
+	formModal.classList.remove("active");
 }
 
 function getBook(title, author, pages, read) {
