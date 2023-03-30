@@ -1,5 +1,6 @@
 const myLibrary = [];
 const bookContainer = document.querySelector(".book-area");
+const addBookForm = document.querySelector("addBookForm");
 const addBookBtn = document.querySelector(".add-book");
 const formModal = document.querySelector(".modal");
 const formAddBookBtn = document.querySelector(".formBtn");
@@ -8,7 +9,6 @@ const formBtnCancel = document.querySelector(".formBtnCancel");
 addBookBtn.addEventListener('click', openForm);
 formAddBookBtn.addEventListener('click', getBook);
 formBtnCancel.addEventListener('click', cancelForm)
-//window.addEventListener('click', () => {formModal.classList.remove("active");});
 
 function openForm() {
 	formModal.classList.add("active");
@@ -18,8 +18,23 @@ function cancelForm() {
 	formModal.classList.remove("active");
 }
 
-function getBook(title, author, pages, read) {
+function getBook() {
 	//assign parameters to form inputs and pass it to addBookToLibrary()
+	const nTitle = document.querySelector("#Title").value;
+  	const nAuthor = document.querySelector("#Author").value;
+  	const nPages = document.querySelector("#Pages").value;
+  	const nRead = document.querySelector("#isRead");
+
+	if ( nRead.checked ) {
+		nRead = "True";
+	 } else {
+		nRead = "False";
+	 }
+
+  	const newBook = new Book(nTitle, nAuthor, nPages, nRead);
+  	myLibrary.push(newBook);
+
+  	addBookForm.reset();
 	formModal.classList.remove("active");
 }
 
