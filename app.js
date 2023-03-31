@@ -1,3 +1,4 @@
+//Variables
 const myLibrary = [];
 const bookContainer = document.querySelector(".book-area");
 const addBookForm = document.querySelector("addBookForm");
@@ -6,38 +7,12 @@ const formModal = document.querySelector(".modal");
 const formAddBookBtn = document.querySelector(".formBtn");
 const formBtnCancel = document.querySelector(".formBtnCancel");
 
+//Event Listeners
 addBookBtn.addEventListener('click', openForm);
 formAddBookBtn.addEventListener('click', getBook);
-formBtnCancel.addEventListener('click', cancelForm)
+formBtnCancel.addEventListener('click', cancelForm);
 
-function openForm() {
-	formModal.classList.add("active");
-}
-
-function cancelForm() {
-	formModal.classList.remove("active");
-}
-
-function getBook() {
-	//assign parameters to form inputs and pass it to addBookToLibrary()
-	const nTitle = document.querySelector("#Title").value;
-  	const nAuthor = document.querySelector("#Author").value;
-  	const nPages = document.querySelector("#Pages").value;
-  	const nRead = document.querySelector("#isRead");
-
-	if ( nRead.checked ) {
-		nRead = "True";
-	 } else {
-		nRead = "False";
-	 }
-
-  	const newBook = new Book(nTitle, nAuthor, nPages, nRead);
-  	myLibrary.push(newBook);
-
-  	addBookForm.reset();
-	formModal.classList.remove("active");
-}
-
+//Constructors/ Objects
 function Book(title, author, pages, read){
 	this.title = title;
 	this.author = author;
@@ -52,6 +27,36 @@ const book1 = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", 224
 const book2 = new Book("Innovators", "Walter Isaacson", 480, true);
 
 myLibrary.push(book1, book2);
+
+//Functions
+function openForm() {
+	formModal.classList.add("active");
+}
+
+function cancelForm() {
+	formModal.classList.remove("active");
+}
+
+function getBook() {
+	//assign parameters to form inputs and pass it to addBookToLibrary()
+	const title = document.querySelector("#title").value;
+  	const author = document.querySelector("#author").value;
+  	const pages = document.querySelector("#pages").value;
+  	const read = document.querySelector("#isRead");
+
+	if (read.checked) {
+		read = "True";
+	} else {
+		read = "False";
+	}
+
+  	const newBook = new Book(title, author, pages, read);
+  	myLibrary.push(newBook);
+
+	addBookToLibrary();
+
+	formModal.classList.remove("active");
+}
 
 function addBookToLibrary() {
     myLibrary.forEach((book) => {
