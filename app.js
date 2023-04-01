@@ -6,11 +6,13 @@ const addBookBtn = document.querySelector(".add-book");
 const formModal = document.querySelector(".modal");
 const formAddBookBtn = document.querySelector(".formBtn");
 const formBtnCancel = document.querySelector(".formBtnCancel");
+const formBtnDelete = document.querySelector(".bookDeleteBtn");
 
 //Event Listeners
 addBookBtn.addEventListener('click', openForm);
 formAddBookBtn.addEventListener('click', addBookToLibrary);
 formBtnCancel.addEventListener('click', cancelForm);
+formBtnDelete.addEventListener('click', deleteBookFromLibrary);
 
 //Constructors/ Objects
 function Book(title, author, pages, read){
@@ -33,7 +35,14 @@ function cancelForm() {
 	formModal.classList.remove("active");
 }
 
+function deleteBookFromLibrary(book) {
+	const index = myLibrary.findIndex((b) => b === book);
+
+	myLibrary.splice(index, 1);
+}
+
 //Adding manual books
+//const book1 = new Book("Click Millionaires", "Scott Fox", 288, false);
 const book1 = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", 224, true);
 const book2 = new Book("Innovators", "Walter Isaacson", 480, true);
 
@@ -62,7 +71,7 @@ function addManualBook() {
 		const bookDeleteBtn = document.createElement("button");
 		bookDeleteBtn.textContent = "Delete";
 		bookDeleteBtn.addEventListener("click", () => {
-		deleteBookFromLibrary(newBook);
+		deleteBookFromLibrary(book);
 		bookTile.remove();
 	});
 
