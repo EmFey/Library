@@ -9,7 +9,7 @@ const formBtnCancel = document.querySelector(".formBtnCancel");
 
 //Event Listeners
 addBookBtn.addEventListener('click', openForm);
-formAddBookBtn.addEventListener('click', getBook);
+formAddBookBtn.addEventListener('click', addBookToLibrary);
 formBtnCancel.addEventListener('click', cancelForm);
 
 //Constructors/ Objects
@@ -23,10 +23,6 @@ function Book(title, author, pages, read){
 	}
 }
 
-const book1 = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", 224, true);
-const book2 = new Book("Innovators", "Walter Isaacson", 480, true);
-
-myLibrary.push(book1, book2);
 
 //Functions
 function openForm() {
@@ -37,28 +33,13 @@ function cancelForm() {
 	formModal.classList.remove("active");
 }
 
-function getBook() {
-	//assign parameters to form inputs and pass it to addBookToLibrary()
-	const title = document.querySelector("#title").value;
-  	const author = document.querySelector("#author").value;
-  	const pages = document.querySelector("#pages").value;
-  	const read = document.querySelector("#isRead");
+//Adding manual books
+const book1 = new Book("The Subtle Art of Not Giving a F*ck", "Mark Manson", 224, true);
+const book2 = new Book("Innovators", "Walter Isaacson", 480, true);
 
-	if (read.checked) {
-		read = "True";
-	} else {
-		read = "False";
-	}
+myLibrary.push(book1, book2);
 
-  	const newBook = new Book(title, author, pages, read);
-  	myLibrary.push(newBook);
-
-	addBookToLibrary();
-
-	formModal.classList.remove("active");
-}
-
-function addBookToLibrary() {
+function addManualBook() {
     myLibrary.forEach((book) => {
 		const bookTile = document.createElement("div");
 		bookTile.classList.add("book-tile");
@@ -78,14 +59,85 @@ function addBookToLibrary() {
 		const read = document.createElement("p");
 		read.textContent = "Read: " + book.read;
 
+		const bookDeleteBtn = document.createElement("button");
+		bookDeleteBtn.textContent = "Delete";
+		bookDeleteBtn.addEventListener("click", () => {
+		deleteBookFromLibrary(newBook);
+		bookTile.remove();
+	});
+
 		bookTile.appendChild(image);
 		bookTile.appendChild(title);
 		bookTile.appendChild(author);
 		bookTile.appendChild(pages);
 		bookTile.appendChild(read);
+		bookTile.appendChild(bookDeleteBtn);
 
 		bookContainer.appendChild(bookTile);
 	  });
 }
 
-addBookToLibrary();
+addManualBook();
+
+function addBookToLibrary(event) {
+  event.preventDefault();
+
+  	// Get the form inputs
+  	const title = document.querySelector("#title").value;
+	const author = document.querySelector("#author").value;
+  	const pages = document.querySelector("#pages").value;
+  	let read = document.querySelector("#isRead");
+
+	if (read.checked) {
+		read = "True";
+	} else {
+		read = "False";
+	}
+
+  	// Create a new Book object
+  	const newBook = new Book(title, author, pages, read);
+
+  	// Add the new Book object to the books array
+  	myLibrary.push(newBook);
+
+  	// Create a new book tile
+	const bookTile = document.createElement("div");
+	bookTile.classList.add("book-tile");
+
+	const bookImage = document.createElement("img");
+	bookImage.src = "images/bookIMG.jfif";
+	bookImage.alt = "Book cover image";
+
+	const bookTitle = document.createElement("h2");
+	bookTitle.textContent = newBook.title;
+
+	const bookAuthor = document.createElement("p");
+	bookAuthor.textContent = "Author: " + newBook.author;
+
+	const bookPages = document.createElement("p");
+	bookPages.textContent = "Pages: " + newBook.pages;
+
+	const bookReadStatus = document.createElement("p");
+	bookReadStatus.classList.add("read-status");
+	bookReadStatus.textContent = newBook.read;
+
+	const bookDeleteBtn = document.createElement("button");
+	bookDeleteBtn.textContent = "Delete";
+	bookDeleteBtn.addEventListener("click", () => {
+		deleteBookFromLibrary(newBook);
+		bookTile.remove();
+	});
+
+	bookTile.appendChild(bookImage);
+	bookTile.appendChild(bookTitle);
+	bookTile.appendChild(bookAuthor);
+	bookTile.appendChild(bookPages);
+	bookTile.appendChild(bookReadStatus);
+	bookTile.appendChild(bookDeleteBtn);
+
+	// Add the new book tile to the book list in the HTML
+	bookContainer.appendChild(bookTile);
+
+	// Hide the add book form
+	formModal.classList.remove("active");
+}
