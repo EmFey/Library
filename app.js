@@ -128,7 +128,7 @@ function addBookToLibrary(event) {
 
 	const bookReadStatus = document.createElement("p");
 	bookReadStatus.classList.add("read-status");
-	bookReadStatus.textContent = newBook.read;
+	bookReadStatus.textContent = "Read: " + newBook.read;
 
 	const bookDeleteBtn = document.createElement("button");
 	bookDeleteBtn.textContent = "Delete";
