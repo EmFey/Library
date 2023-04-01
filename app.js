@@ -56,7 +56,7 @@ function addManualBook() {
 		const image = document.createElement("img");
   		image.src = "images/bookIMG.jfif";
 
-		const title = document.createElement("h2");
+		const title = document.createElement("h1");
 		title.textContent = book.title;
 
 		const author = document.createElement("p");
@@ -117,7 +117,7 @@ function addBookToLibrary(event) {
 	bookImage.src = "images/bookIMG.jfif";
 	bookImage.alt = "Book cover image";
 
-	const bookTitle = document.createElement("h2");
+	const bookTitle = document.createElement("h1");
 	bookTitle.textContent = newBook.title;
 
 	const bookAuthor = document.createElement("p");
