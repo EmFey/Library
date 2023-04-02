@@ -53,6 +53,7 @@ button {
 
 .logo {
     display: flex;
+    align-items: center;
 }
 
 .book-area {
