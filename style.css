@@ -81,6 +81,8 @@ h1 {
 }
 
 .footer {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 30px #00000080;
     padding: var(--main-padding);

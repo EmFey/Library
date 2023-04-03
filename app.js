@@ -7,6 +7,16 @@ const formModal = document.querySelector(".modal");
 const formAddBookBtn = document.querySelector(".formBtn");
 const formBtnCancel = document.querySelector(".formBtnCancel");
 const formBtnDelete = document.querySelector(".bookDeleteBtn");
+const totalBooksElem = document.getElementById("total-books");
+const readBooksElem = document.getElementById("read-books");
+const unreadBooksElem = document.getElementById("unread-books");
+
+// Function to update the stats
+function updateStats() {
+  totalBooksElem.textContent = getTotalBooks();
+  readBooksElem.textContent = getReadBooksCount();
+  unreadBooksElem.textContent = getUnreadBooksCount();
+}
 
 //Event Listeners
 addBookBtn.addEventListener('click', openForm);
@@ -39,6 +49,7 @@ function deleteBookFromLibrary(book) {
 	const index = myLibrary.findIndex((b) => b === book);
 
 	myLibrary.splice(index, 1);
+	updateStats();
 }
 
 //Adding manual books
@@ -135,6 +146,7 @@ function addBookToLibrary(event) {
 	bookDeleteBtn.addEventListener("click", () => {
 		deleteBookFromLibrary(newBook);
 		bookTile.remove();
+		updateStats();
 	});
 
 	bookTile.appendChild(bookImage);
@@ -149,4 +161,33 @@ function addBookToLibrary(event) {
 
 	// Hide the add book form
 	formModal.classList.remove("active");
+
+	updateStats();
 }
+
+function getTotalBooks() {
+	return myLibrary.length + 2;
+}
+
+function getReadBooksCount() {
+	return (myLibrary.filter((book) => book.read).length) + 1;
+}
+
+function getUnreadBooksCount() {
+	const unreadCount = myLibrary.reduce((count, myLibrary) => {
+	  if (myLibrary.read == "True") {
+		return count + 1;
+	  } else {
+		return count;
+	  }
+	}, 0);
+
+	const readCount = myLibrary.length - unreadCount;
+
+	return {
+	  unread: unreadCount,
+	  read: readCount
+	};
+}
+
+updateStats();
