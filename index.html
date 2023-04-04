@@ -12,31 +12,31 @@
         <div class="header">
             <div class="logo">
                 <img src="images/bookIMG.jfif" alt="Logo">
-                <p>Your Library</p>
+                <p class="dynamic">Your Library</p>
             </div>
-            <button class="add-book">+ ADD BOOK</button>
+            <button class="add-book dynamicU">+ ADD BOOK</button>
         </div>
 
         <div class="book-area">
             <div class="book-tile">
                 <div><img src="images/cmBook.jpg" alt="Book image"></div>
                 <div class="book-descr">
-                     <h1>Click Millionaires</h1>
+                     <h1 class="dynamic">Click Millionaires</h1>
                      <p>Scott Fox</p>
                      <p>Pages: 288</p>
                      <p>Read: False</p>
-                     <button class="bookDeleteBtn" type="submit">Delete</button>
+                     <button class="bookDeleteBtn dynamicU" type="submit">Delete</button>
                 </div>
             </div>
 
             <div class="book-tile">
                 <div><img src="images/t48Power.jpg" alt="Book image"></div>
                 <div class="book-descr">
-                     <h1>The 48 Laws of Power</h2>
+                     <h1 class="dynamic">The 48 Laws of Power</h2>
                      <p>Robert Greene</p>
                      <p>Pages: 480</p>
                      <p>Read: True</p>
-                     <button class="bookDeleteBtn" type="submit">Delete</button>
+                     <button class="bookDeleteBtn dynamicU" type="submit">Delete</button>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <p>Read Books: <span id="read-books"></span></p>
                 <p>Unread Books: <span id="unread-books"></span></p>
             </div>
-            <p>emfey</p>
+            <p class="dynamic">emfey</p>
         </div>
 
     </div>
@@ -61,8 +61,8 @@
             <label for="read-book">Have you read it?</label>
             <input class="checkbox" type="checkbox" id="isRead">
           </div>
-          <button class="formBtn" type="submit">Submit</button>
-          <button class="formBtnCancel" type="submit">Cancel</button>
+          <button class="formBtn dynamicU" type="submit">Submit</button>
+          <button class="formBtnCancel dynamicU" type="submit">Cancel</button>
         </form>
       </div>
     <script src="app.js"></script>
