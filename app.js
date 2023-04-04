@@ -68,6 +68,7 @@ function addManualBook() {
   		image.src = "images/bookIMG.jfif";
 
 		const title = document.createElement("h1");
+		title.classList.add("dynamic");
 		title.textContent = book.title;
 
 		const author = document.createElement("p");
@@ -80,6 +81,7 @@ function addManualBook() {
 		read.textContent = "Read: " + book.read;
 
 		const bookDeleteBtn = document.createElement("button");
+		bookDeleteBtn.classList.add("dynamicU");
 		bookDeleteBtn.textContent = "Delete";
 		bookDeleteBtn.addEventListener("click", () => {
 		deleteBookFromLibrary(book);
@@ -129,6 +131,7 @@ function addBookToLibrary(event) {
 	bookImage.alt = "Book cover image";
 
 	const bookTitle = document.createElement("h1");
+	bookTitle.classList.add("dynamic");
 	bookTitle.textContent = newBook.title;
 
 	const bookAuthor = document.createElement("p");
@@ -141,9 +144,10 @@ function addBookToLibrary(event) {
 	bookReadStatus.classList.add("read-status");
 	bookReadStatus.textContent = "Read: " + newBook.read;
 
-	const bookDeleteBtn = document.createElement("button");
-	bookDeleteBtn.textContent = "Delete";
-	bookDeleteBtn.addEventListener("click", () => {
+	const bookDeleteBtn2 = document.createElement("button");
+	bookDeleteBtn2.classList.add("dynamicU");
+	bookDeleteBtn2.textContent = "Delete";
+	bookDeleteBtn2.addEventListener("click", () => {
 		deleteBookFromLibrary(newBook);
 		bookTile.remove();
 		updateStats();
@@ -154,7 +158,7 @@ function addBookToLibrary(event) {
 	bookTile.appendChild(bookAuthor);
 	bookTile.appendChild(bookPages);
 	bookTile.appendChild(bookReadStatus);
-	bookTile.appendChild(bookDeleteBtn);
+	bookTile.appendChild(bookDeleteBtn2);
 
 	// Add the new book tile to the book list in the HTML
 	bookContainer.appendChild(bookTile);
