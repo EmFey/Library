@@ -11,7 +11,7 @@ Using Objects, methods and inheritance for this project
 
 ## Appendix
 
-This project is not done
+This project is not done yet, but so far it works as it should
 
 
 ## Authors
@@ -24,5 +24,4 @@ This project is not done
 To be edited
 
 ## LIVE
-https://emfey.github.io/Dashboard/
-
+https://emfey.github.io/Library/
