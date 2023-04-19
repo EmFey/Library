@@ -103,4 +103,4 @@ class Book {
 	  this.bookContainer.appendChild(bookTile);
   
 	  // Hide the add
-  
+	}}
